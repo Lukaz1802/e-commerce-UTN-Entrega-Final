@@ -1,39 +1,38 @@
-import { useState, useEffect } from "react";
-import { Row, Col, Image} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import ProductCard from "../components/ProductCard";
-import { getAll } from "../Services/ProductServices";
+import { useState, useEffect } from "react"
+import { Row, Col, Image} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import ProductCard from "../components/ProductCard"
+import { getAll } from "../Services/ProductServices"
 import classes from '../styles/home.module.css'
 
 const Home = () => {
-  const numProductosAMostrar = 8;
-  const [compra, setCompra] = useState(false);
-  const [productos, setProductos] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const numProductosAMostrar = 8
+  const [compra, setCompra] = useState(false)
+  const [productos, setProductos] = useState([])
+  const [loading, setLoading] = useState(true)
 
-  console.log('productos', productos)
   useEffect(() => {
     const request = async () => {
       try {
-        const response = await getAll();
-        setProductos(response?.results);
-        setLoading(false);
+        const response = await getAll()
+        setProductos(response?.results)
+        setLoading(false)
       } catch (e) {
-        console.log(e);
+        console.log(e)
       }
-    };
-    request();
-  }, []);
+    }
+    request()
+  }, [])
 
   const handleComprar = () => {
-    setCompra(true);
-  };
+    setCompra(true)
+  }
 
   if (loading) {
-    return <div>Cargando...</div>;
+    return <div>Cargando...</div>
   }
   if (compra) {
-    return <div>Gracias por su compra!</div>;
+    return <div>Gracias por su compra!</div>
   } else {
 
     return (
@@ -55,9 +54,9 @@ const Home = () => {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
 
-export default Home;
+export default Home

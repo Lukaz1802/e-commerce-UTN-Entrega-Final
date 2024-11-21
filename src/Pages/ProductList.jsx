@@ -1,34 +1,34 @@
-import { useState, useEffect } from 'react';
-import ProductCard from '../components/ProductCard';
-import { getAll } from '../Services/ProductServices';
-import { Row, Col } from 'react-bootstrap';
+import { useState, useEffect } from 'react'
+import ProductCard from '../components/ProductCard'
+import { getAll } from '../Services/ProductServices'
+import { Row, Col } from 'react-bootstrap'
 import '../styles/General.css'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 
 
 function ProductList() {
-  const [compra, setCompra] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [titulo, setTitulo] = useState("Productos");
-  const [productos, setProductos] = useState([]);
+  const [compra, setCompra] = useState(false)
+  const [loading, setLoading] = useState(true)
+  const [titulo, setTitulo] = useState("Productos")
+  const [productos, setProductos] = useState([])
 
   useEffect(() => {
     const request = async () => {
       try {
-        const response = await getAll();
-        setProductos(response?.results);
-        setLoading(false);
+        const response = await getAll()
+        setProductos(response?.results)
+        setLoading(false)
       } catch (e) {
-        console.log(e);
+        console.log(e)
       }
-    };
-    request();
-  }, []);
+    }
+    request()
+  }, [])
 
   const handleClick = () => {
-    setTitulo("Productos Modificado");
-  };
+    setTitulo("Productos Modificado")
+  }
 
   const handleClickAgregarProducto = () => {
     setProductos([
@@ -40,15 +40,15 @@ function ProductList() {
         category: "Celulares",
         className: "product-card"
       },
-    ]);
-  };
+    ])
+  }
 
   const handleComprar = () => {
-    setCompra(true);
-  };
+    setCompra(true)
+  }
 
   if (loading) {
-    return <div>Cargando...</div>;
+    return <div>Cargando...</div>
   }
   if (compra) {
     return <>
@@ -57,7 +57,7 @@ function ProductList() {
         <p>En los proximos minutos recibiras un Email con el detalle de tu compra.</p>
         <p className="mb-0"><Link to={'/'}>Ir a inicio</Link></p>
       </div>
-    </>;
+    </>
   } else {
     return (
       <div className="container text-center">
@@ -72,9 +72,9 @@ function ProductList() {
         </Row>
         <button className='producto-add' onClick={handleClickAgregarProducto}>Agregar Producto</button>
       </div>
-    );
+    )
   }
 }
 
 
-export default ProductList;
+export default ProductList

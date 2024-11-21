@@ -1,4 +1,4 @@
-import { Container } from "react-bootstrap";
+import { Container } from "react-bootstrap"
 
 function Footer() {
   return (
@@ -9,7 +9,7 @@ function Footer() {
         </Container>
       </footer>
     </div>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

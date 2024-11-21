@@ -1,40 +1,40 @@
-import { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
-import { firebaseApp,  auth } from '../Config/firebase';
-import { useNavigate } from 'react-router-dom';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { useState } from 'react'
+import { Form, Button } from 'react-bootstrap'
+import { useForm } from 'react-hook-form'
+import { firebaseApp,  auth } from '../Config/firebase'
+import { useNavigate } from 'react-router-dom'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 
 function RegisterForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm()
 
-  const navigate = useNavigate();
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate()
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const onSubmit = async (data) => {
     try {
-      setLoading(true);
-      await createUserWithEmailAndPassword(auth ,data.email, data.password);
+      setLoading(true)
+      await createUserWithEmailAndPassword(auth ,data.email, data.password)
       await firebaseApp?.firestore().collection('users').add({
         firstName: data.firstName,
         lastName: data.lastName,
         email: data.email,
-      });
+      })
       
     } catch (error) {
       console.log(error)
-      setError(error.message);
+      setError(error.message)
     } finally {
-      setLoading(false);
-      navigate('/login'); /*Navegar a /login despues de terminar el registro*/
+      setLoading(false)
+      navigate('/login') /*Navegar a /login despues de terminar el registro*/
     }
     
-  };
+  }
 
   return (
     <div className="register-container ">
@@ -71,8 +71,8 @@ function RegisterForm() {
         </Button>
       </Form>
     </div>
-  );
+  )
 }
 
-export default RegisterForm;
+export default RegisterForm
 

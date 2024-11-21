@@ -1,5 +1,5 @@
-import { Card, Button, Col } from 'react-bootstrap';
-import { Link } from "react-router-dom";
+import { Card, Button, Col } from 'react-bootstrap'
+import { Link } from "react-router-dom"
 import '../styles/ProductCard.scss'
 
 // eslint-disable-next-line react/prop-types
@@ -23,8 +23,8 @@ function ProductCard({ title, price, buy, thumbnail, id }) {
                 </Card.Body>
             </Card>
         </Col>
-    );
+    )
 }
 
-export default ProductCard;
+export default ProductCard
 

@@ -1,37 +1,37 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getById, getDescription } from "../Services/ProductServices";
-import { Card, Button, Col} from "react-bootstrap";
-import "../styles/General.css";
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import { getById, getDescription } from "../Services/ProductServices"
+import { Card, Button, Col} from "react-bootstrap"
+import "../styles/General.css"
 
 function ProductDetails() {
-  const { productoId } = useParams();
-  const [producto, setProducto] = useState({});
-  const [description, setDescription] = useState({});
-  const [loading, setLoading] = useState(true);
+  const { productoId } = useParams()
+  const [producto, setProducto] = useState({})
+  const [description, setDescription] = useState({})
+  const [loading, setLoading] = useState(true)
 
 
   useEffect(() => {
     const request = async () => {
       try {
-        const responseProducto = await getById(productoId);
-        setProducto(responseProducto);
-        const responseDescription = await getDescription(productoId);
-        setDescription(responseDescription);
-        setLoading(false);
+        const responseProducto = await getById(productoId)
+        setProducto(responseProducto)
+        const responseDescription = await getDescription(productoId)
+        setDescription(responseDescription)
+        setLoading(false)
       } catch (e) {
-        console.log(e);
+        console.log(e)
       }
-    };
-    request();
-  }, [productoId]);
+    }
+    request()
+  }, [productoId])
 
   const buy = () => {
     alert("Producto agregado al carrito")
-  };
+  }
 
   if (loading) {
-    return <div>Cargando ...</div>;
+    return <div>Cargando ...</div>
   }
   return (
     <Col className="my-8 mt-2 mb-2">
@@ -59,7 +59,7 @@ function ProductDetails() {
         </Card.Body>
       </Card>
     </Col>
-  );
+  )
 }
 
-export default ProductDetails;
+export default ProductDetails

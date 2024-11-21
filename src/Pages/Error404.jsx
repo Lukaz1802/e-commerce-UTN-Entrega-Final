@@ -3,7 +3,7 @@ const Error404 = () => {
         <div>
             ERROR 404
         </div>
-    );
+    )
 }
 
-export default Error404;
+export default Error404
