@@ -1,8 +1,16 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+Este proyecto consta de una aplicacion web tipo **_E-commerce_**, construido con:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React js**
+  - _Creacion de componentes_
+  - _useSate/useEffect_
+  - _Uso de enrutador_
+  - _Context_
+- **HTML**
+- **CSS**
+- **Boostrap**
+- **FireBase**, para lograr la autenticación(Login/Register).
+
+Para mostrar los productos estos son obtenidos a traves de la llamada a la api de [Mercadolibre](https://www.mercadolibre.com.ar/), pudiendose renderizar en un listado resumido en _Home_ como asi tambien en un _listado general_ y una _vista individualizada_ con los detalles del mismo.
