@@ -24,3 +24,8 @@ Para mostrar los productos estos son obtenidos a traves de la llamada a la api d
 
 Para poder ver el proyecto funcionar ejecutar el comando **npm run dev**.<br>
 El sitio se podrá ver en el navegador en <http://localhost:3000>
+
+---
+
+**Link a la App deployada en Vercel**
+<https://e-commerce-utn-entrega-final.vercel.app/>
